@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Searching from './Searching';
+import Adding from './Adding';
+import Printing from './Printing';
 import './App.css';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Searching} />
+          <Route path="/printing" component={Printing}/>
+          <Route path="/adding" component={Adding}/>
+       
+        </Switch>
+      </Router>
+    )}
 }
 
 export default App;
